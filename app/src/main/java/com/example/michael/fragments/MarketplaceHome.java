@@ -1,6 +1,5 @@
 package com.example.michael.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,13 +11,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class Fragment1 extends Fragment {
-    private static final String TAG = "Fragment1";
+public class MarketplaceHome extends Fragment {
+    private static final String TAG = "Marketplace Home";
 
-    private Button btnNavFrag1;
-    private Button btnNavFrag2;
-    private Button btnNavFrag3;
-    private Button btnNavSecondActivity;
+    private Button bt_mp_create_offer;
+    private Button bt_mp_search_offers;
+    private Button bt_mp_favorites;
+    private Button bt_mp_show_offer;
     //fragments unterscheiden sich von activity mit oncreateView statt onCreate!!!
 
 
@@ -26,53 +25,55 @@ public class Fragment1 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment1_layout, container, false);
+        View view = inflater.inflate(R.layout.marketplace_home_fragment, container, false);
 
         //difference: declaring widgets-> referencing the view
         //activity: (Button) findviewByiD, hier: view.findViewbyId!!
 
-        btnNavFrag1=(Button) view.findViewById(R.id.btnNavFrag1);
-        btnNavFrag2=(Button) view.findViewById(R.id.btnNavFrag2);
-        btnNavFrag3=(Button) view.findViewById(R.id.btnNavFrag3);
-        btnNavSecondActivity=(Button) view.findViewById(R.id.btnNavSecondActivity);
+        bt_mp_create_offer=(Button) view.findViewById(R.id.bt_mp_create_offer);
+        bt_mp_favorites=(Button) view.findViewById(R.id.bt_mp_favorites);
+        bt_mp_search_offers=(Button) view.findViewById(R.id.btnNavFrag1);
+        bt_mp_show_offer=(Button) view.findViewById(R.id.bt_mp_show_offers);
+
         Log.d(TAG, "onCreateView: started");
 
-        btnNavFrag1.setOnClickListener(new View.OnClickListener(){
+        bt_mp_create_offer.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
 
                 //unterschied activity: nicht mit this referenzieren oder activity.this
-                Toast.makeText(getActivity(), "Going to Fragment1", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Angebot erstellen", Toast.LENGTH_SHORT).show();
 
                 //(()) gibt access auf methoden in mainactivity
                 // 0 für fragment 0, da in liste platz 0
-                ((MainActivity)getActivity()).setmViewPager(0);
+                ((MainActivity)getActivity()).setViewPager(1);
             }
         });
 
-        btnNavFrag2.setOnClickListener(new View.OnClickListener(){
+        bt_mp_favorites.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
 
                 //unterschied activity: nicht mit this referenzieren oder activity.this
-                Toast.makeText(getActivity(), "Going to Fragment2", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Favoriten", Toast.LENGTH_SHORT).show();
                 //navigate to fragment method called
-                ((MainActivity)getActivity()).setmViewPager(1);
+                ((MainActivity)getActivity()).setViewPager(1);
             }
         });
-
-        btnNavFrag3.setOnClickListener(new View.OnClickListener(){
+        /*
+        bt_mp_search_offers.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
 
                 //unterschied activity: nicht mit this referenzieren oder activity.this
-                Toast.makeText(getActivity(), "Going to Fragment3", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Going to SearchOffer", Toast.LENGTH_SHORT).show();
                 //navigate to fragment method called
-                ((MainActivity)getActivity()).setmViewPager(2);
+                ((MainActivity)getActivity()).setViewPager(2);
             }
         });
-        //um zu activity 2 zu wechseln
-        btnNavSecondActivity.setOnClickListener(new View.OnClickListener(){
+
+        /*
+        bt_mp_show_offer.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
 
@@ -82,7 +83,7 @@ public class Fragment1 extends Fragment {
                 startActivity(intent);
             }
         });
-
+        */
 
         return view;
         //unterschied zu activity!!! viewObject erzeugen und unten zurück geben!!!

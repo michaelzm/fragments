@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_color_create"
+    tools:layout_editor_absoluteY="81dp">
+
+    <EditText
+        android:id="@+id/text_input_1"
+        android:layout_marginTop="20dp"
+        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:inputType="text"
+        android:hint="Titel des Angebots"/>
+    <EditText
+        android:id="@+id/text_input_2"
+        android:minLines="5"
+        android:maxLines="8"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_below="@id/text_input_1"
+        android:inputType="textMultiLine"
+        android:scrollbars="vertical"
+        android:hint="Beschreibung hinzufügen"/>
+
+    <Button
+        android:id="@+id/bt_co_add_pic"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_input_2"
+        android:text="@string/bild_hinzufuegen"
+        android:textAlignment="center"
+        android:layout_marginLeft="10dp"/>
+
+    <Button
+        android:id="@+id/bt_co_add_geo"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/bt_co_add_pic"
+        android:layout_below="@id/text_input_2"
+        android:text="weiter"
+        android:textAlignment="center"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/bt_co_publish_offer"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/bt_co_add_geo"
+        android:text="@string/angebot_veroeffentlichen"
+        android:layout_centerHorizontal="true" />
+
+
+
+</RelativeLayout>
