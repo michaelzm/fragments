@@ -15,13 +15,14 @@ import android.widget.Toast;
 import android.app.FragmentManager;
 
 public class CreateOfferFragment extends Fragment {
-    private static final String TAG = "MarketplaceHome";
+    private static final String TAG = "MarketplaceHomeFragment";
 
 
     //fragments unterscheiden sich von activity mit oncreateView statt onCreate!!!
     private Button bt_publish;
     private Button bt_addPic;
     private Button bt_addGeo;
+    MarketplacePresenter presenter;
 
 
     @Nullable
@@ -46,7 +47,7 @@ public class CreateOfferFragment extends Fragment {
 
                     //(()) gibt access auf methoden in mainactivity
                     // 0 für fragment 0, da in liste platz 0
-                    ((MainActivity)getActivity()).setViewPager(0);
+                   // ((MainActivity)getActivity()).setViewPager(0);
                 }
                 });
         bt_addGeo.setOnClickListener(new View.OnClickListener(){

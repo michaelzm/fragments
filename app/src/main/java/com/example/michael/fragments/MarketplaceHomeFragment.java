@@ -1,6 +1,5 @@
 package com.example.michael.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,14 +11,18 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class MarketplaceHome extends Fragment {
+import com.example.michael.fragments.Interfaces.FragmentChangeListener;
+
+public class MarketplaceHomeFragment extends android.support.v4.app.Fragment {
     private static final String TAG = "Marketplace Home";
 
     private Button bt_mp_create_offer;
     private Button bt_mp_search_offers;
     private Button bt_mp_favorites;
     private Button bt_mp_show_offer;
-    MarketplacePresenter presenter;
+    private MarketplacePresenter mpp=new MarketplacePresenter();
+
+
     //fragments unterscheiden sich von activity mit oncreateView statt onCreate!!!
 
 
@@ -45,7 +48,9 @@ public class MarketplaceHome extends Fragment {
 
                 //unterschied activity: nicht mit this referenzieren oder activity.this
                 Toast.makeText(getActivity(), "Angebot erstellen", Toast.LENGTH_SHORT).show();
-                presenter.onCreateOfferClicked();
+
+                Fragment cof=new CreateOfferFragment();
+                showOtherFragment(cof);
 
 
                 //(()) gibt access auf methoden in mainactivity
@@ -57,9 +62,10 @@ public class MarketplaceHome extends Fragment {
         bt_mp_favorites.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-
-                //unterschied activity: nicht mit this referenzieren oder activity.this
+                   MarketplacePresenter mpp= new MarketplacePresenter();
+                //ued();nterschied activity: nicht mit this referenzieren oder activity.this
                 Toast.makeText(getActivity(), "Favoriten", Toast.LENGTH_SHORT).show();
+                    mpp.onFavoritesClicked();
                 //navigate to fragment method called
               //  ((MainActivity)getActivity()).setViewPager(1);
             }
@@ -91,5 +97,10 @@ public class MarketplaceHome extends Fragment {
 
         return view;
         //unterschied zu activity!!! viewObject erzeugen und unten zurück geben!!!
+    }
+    public void showOtherFragment(Fragment fr){
+
+        FragmentChangeListener fc=(FragmentChangeListener)getActivity();
+        fc.replaceFragment(fr);
     }
 }
