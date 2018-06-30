@@ -1,5 +1,6 @@
 package com.example.michael.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -18,6 +19,7 @@ public class MarketplaceHome extends Fragment {
     private Button bt_mp_search_offers;
     private Button bt_mp_favorites;
     private Button bt_mp_show_offer;
+    MarketplacePresenter presenter;
     //fragments unterscheiden sich von activity mit oncreateView statt onCreate!!!
 
 
@@ -43,10 +45,12 @@ public class MarketplaceHome extends Fragment {
 
                 //unterschied activity: nicht mit this referenzieren oder activity.this
                 Toast.makeText(getActivity(), "Angebot erstellen", Toast.LENGTH_SHORT).show();
+                presenter.onCreateOfferClicked();
+
 
                 //(()) gibt access auf methoden in mainactivity
                 // 0 für fragment 0, da in liste platz 0
-                ((MainActivity)getActivity()).setViewPager(1);
+               // ((MainActivity)getActivity()).setViewPager(1);
             }
         });
 
@@ -57,7 +61,7 @@ public class MarketplaceHome extends Fragment {
                 //unterschied activity: nicht mit this referenzieren oder activity.this
                 Toast.makeText(getActivity(), "Favoriten", Toast.LENGTH_SHORT).show();
                 //navigate to fragment method called
-                ((MainActivity)getActivity()).setViewPager(1);
+              //  ((MainActivity)getActivity()).setViewPager(1);
             }
         });
         /*
