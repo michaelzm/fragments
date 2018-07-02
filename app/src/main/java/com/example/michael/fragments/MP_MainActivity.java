@@ -14,7 +14,7 @@ import com.example.michael.fragments.Interfaces.FragmentChangeListener;
 public class MP_MainActivity extends AppCompatActivity implements FragmentChangeListener {
     private static final String TAG = "MP_MainActivity";
     private FragmentManager manager;
-
+    //sectionsstatepageradapter und viepager werden nicht benötigt, waren von altem konzept zum wischen nach rechts
     private SectionsStatePagerAdapter sectionsStatePagerAdapter;
     private ViewPager viewPager; //view Object referenz
 
@@ -29,7 +29,7 @@ public class MP_MainActivity extends AppCompatActivity implements FragmentChange
     }
     private void init(){
         Log.d(TAG, "init: inflating");
-
+        //setzt das fragment homefragment am anfang, alternativ geht auch replaceFragment (new HomeFragment() glaub ich)
         MarketplaceHomeFragment fragment = new MarketplaceHomeFragment();
         FragmentTransaction transaction = MP_MainActivity.this.getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, fragment);

@@ -50,6 +50,8 @@ public class MarketplaceHomeFragment extends android.support.v4.app.Fragment {
 
                 //unterschied activity: nicht mit this referenzieren oder activity.this
                 Toast.makeText(getActivity(), "Angebot erstellen", Toast.LENGTH_SHORT).show();
+
+                //dadurch kann man das Fragment wechseln auf das, was der button ausführen soll. irgendwie über presenter sollte es auch gehen in der theorie
                 ((MP_MainActivity)getActivity()).replaceFragment(new CreateOfferFragment());
                 //mpp.onCreateOfferClicked();
 
@@ -100,6 +102,7 @@ public class MarketplaceHomeFragment extends android.support.v4.app.Fragment {
         return view;
         //unterschied zu activity!!! viewObject erzeugen und unten zurück geben!!!
     }
+    //benötigt für 3. ansatz zum anzeigen der Fragments, aktuell nicht benötigt
     public void showOtherFragment(Fragment fr){
 
         FragmentChangeListener fc=(FragmentChangeListener)getActivity();
