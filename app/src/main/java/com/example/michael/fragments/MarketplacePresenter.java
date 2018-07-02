@@ -7,13 +7,21 @@ import com.example.michael.fragments.Interfaces.MarketplaceInterfacePresenter;
 
 public class MarketplacePresenter extends MarketplaceView implements MarketplaceInterfacePresenter {
     private static String TAG = "MarketplacePresenter";
-    MarketplaceView mpv = new MarketplaceView();
 
+    private  MarketplaceView view;
+
+
+
+
+    @Override
+    public void showOfferSuccessfulToast() {
+
+    }
 
     public void onCreateOfferClicked() {
         Log.d("TAG", "onCreateOfferClicked: ausgeführt ");
 
-        showCreateOfferView();
+       view.showCreateOfferView();
 
 
     }

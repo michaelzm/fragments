@@ -15,7 +15,7 @@
             />
         <activity android:name=".MarketplaceView"
             />
-        <activity android:name=".MainActivity">
+        <activity android:name=".MP_MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

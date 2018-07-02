@@ -25,7 +25,9 @@ public class MarketplaceHomeFragment extends android.support.v4.app.Fragment {
 
     //fragments unterscheiden sich von activity mit oncreateView statt onCreate!!!
 
+    public MarketplaceHomeFragment(){
 
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -48,14 +50,12 @@ public class MarketplaceHomeFragment extends android.support.v4.app.Fragment {
 
                 //unterschied activity: nicht mit this referenzieren oder activity.this
                 Toast.makeText(getActivity(), "Angebot erstellen", Toast.LENGTH_SHORT).show();
-
-                Fragment cof=new CreateOfferFragment();
-                showOtherFragment(cof);
-
+                ((MP_MainActivity)getActivity()).replaceFragment(new CreateOfferFragment());
+                //mpp.onCreateOfferClicked();
 
                 //(()) gibt access auf methoden in mainactivity
                 // 0 für fragment 0, da in liste platz 0
-               // ((MainActivity)getActivity()).setViewPager(1);
+               // ((MP_MainActivity)getActivity()).setViewPager(1);
             }
         });
 
@@ -65,9 +65,11 @@ public class MarketplaceHomeFragment extends android.support.v4.app.Fragment {
                    MarketplacePresenter mpp= new MarketplacePresenter();
                 //ued();nterschied activity: nicht mit this referenzieren oder activity.this
                 Toast.makeText(getActivity(), "Favoriten", Toast.LENGTH_SHORT).show();
-                    mpp.onFavoritesClicked();
+
+
+
                 //navigate to fragment method called
-              //  ((MainActivity)getActivity()).setViewPager(1);
+              //  ((MP_MainActivity)getActivity()).setViewPager(1);
             }
         });
         /*
@@ -78,7 +80,7 @@ public class MarketplaceHomeFragment extends android.support.v4.app.Fragment {
                 //unterschied activity: nicht mit this referenzieren oder activity.this
                 Toast.makeText(getActivity(), "Going to SearchOffer", Toast.LENGTH_SHORT).show();
                 //navigate to fragment method called
-                ((MainActivity)getActivity()).setViewPager(2);
+                ((MP_MainActivity)getActivity()).setViewPager(2);
             }
         });
 

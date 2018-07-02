@@ -3,6 +3,7 @@ package com.example.michael.fragments;
 //import android.app.Fragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,8 +11,8 @@ import android.util.Log;
 
 import com.example.michael.fragments.Interfaces.FragmentChangeListener;
 
-public class MainActivity extends AppCompatActivity implements FragmentChangeListener {
-    private static final String TAG = "MainActivity";
+public class MP_MainActivity extends AppCompatActivity implements FragmentChangeListener {
+    private static final String TAG = "MP_MainActivity";
     private FragmentManager manager;
 
     private SectionsStatePagerAdapter sectionsStatePagerAdapter;
@@ -20,21 +21,28 @@ public class MainActivity extends AppCompatActivity implements FragmentChangeLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.mp_activity_main);
         Log.d(TAG, "onCreate: Started");
-        MarketplaceHomeFragment homeFragment = new MarketplaceHomeFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, homeFragment).commit();
+        init();
+        //MarketplaceHomeFragment homeFragment = new MarketplaceHomeFragment();
+        //getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, homeFragment).commit();
     }
+    private void init(){
+        Log.d(TAG, "init: inflating");
 
+        MarketplaceHomeFragment fragment = new MarketplaceHomeFragment();
+        FragmentTransaction transaction = MP_MainActivity.this.getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.addToBackStack(fragment.toString());
+        transaction.commit();
+    }
 
     @Override
     public void replaceFragment(Fragment fragment) {
-        FragmentManager fragmentManager=getSupportFragmentManager();
-        android.support.v4.app.FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, fragment);
-        fragmentTransaction.addToBackStack(fragment.toString());
-        fragmentTransaction.commit();
-
+        FragmentTransaction transaction = MP_MainActivity.this.getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, fragment);
+        transaction.addToBackStack(fragment.toString());
+        transaction.commit();
     }
 }
         /*

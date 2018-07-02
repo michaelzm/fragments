@@ -2,16 +2,13 @@ package com.example.michael.fragments;
 
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.example.michael.fragments.Interfaces.FragmentChangeListener;
 import com.example.michael.fragments.Interfaces.MarketplaceInterfaceView;
 
-public class MarketplaceView extends MainActivity  implements MarketplaceInterfaceView {
+public class MarketplaceView extends MP_MainActivity implements MarketplaceInterfaceView {
     private static String TAG ="MarketplaceView";
-    @Override
-    public void showOfferSucessfulToast() {
 
+    public MarketplaceView() {
     }
 
     @Override
@@ -19,11 +16,14 @@ public class MarketplaceView extends MainActivity  implements MarketplaceInterfa
 
     }
 
+    @Override
+    public void showOfferSuccessfulToast() {
+
+    }
+
     public void showCreateOfferView(){
         Log.d(TAG, "showCreateOfferView: startet");
-        Fragment cof=new CreateOfferFragment();
-        MarketplaceHomeFragment mhf= new MarketplaceHomeFragment();
-        mhf.showOtherFragment(cof);
+        replaceFragment(new CreateOfferFragment());
 
 
 

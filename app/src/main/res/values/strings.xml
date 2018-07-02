@@ -99,4 +99,7 @@
     <string name="ort_hinzufuegen">Ort hinzufügen</string>
     <string name="angebot_veroeffentlichen">Angebot veröffentlichen</string>
     <string name="te_mp_create_offer">Angebot erstellen</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
